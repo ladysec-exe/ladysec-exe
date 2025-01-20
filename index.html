@@ -3,9 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Liminal Website</title>
+    <title> I loved you... </title>
+    <meta content="Lady's Github" property="og:title" />
+    <meta content="My personal github :3" property="og:description" />
+    <meta content="https://ladysec-exe.github.io" property="og:url" />
+    <meta content="https://ladysec-exe.github.io/pfp1.png" property="og:image" />
+    <meta content="#C4A484" data-react-helmet="true" name="theme-color" />
+    
     <style>
-      /* stop looking at my chatGPT spaghetti LMFAOOOO */
         /* General Reset */
         * {
             margin: 0;
@@ -84,7 +89,6 @@
                 background-image: url('pfp1.png');
             }
         }
-
     </style>
 </head>
 <body>
@@ -106,14 +110,22 @@
     <!-- Footer -->
     <footer id="footer-message">I loved you...</footer>
 
+    <!-- Audio -->
+    <audio id="background-audio" loop muted>
+        <source src="music.mp3" type="audio/mp3">
+        Your browser does not support the audio tag.
+    </audio>
+
     <script>
         // Video Play on Mouse Move
         const video = document.getElementById('background-video');
+        const audio = document.getElementById('background-audio');
         let videoStarted = false;
 
         window.addEventListener('mousemove', function() {
             if (!videoStarted) {
                 video.play();
+                audio.play();
                 videoStarted = true;
             }
         });
