@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liminal Website</title>
+    <style>
+      /* stop looking at my chatGPT spaghetti LMFAOOOO */
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            height: 100%;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+
+        /* Background Video */
+        video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        /* Main Container */
+        .container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+            padding: 30px;
+            border-radius: 10px;
+            max-width: 400px;
+            width: 80%;
+        }
+
+        /* Profile Picture */
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 20px auto;
+            background-image: url('pfp1.png');
+            background-size: cover;
+            background-position: center;
+            transition: background-image 0.2s ease-in-out;
+        }
+
+        /* Footer */
+        footer {
+            position: absolute;
+            bottom: 10px;
+            width: 100%;
+            text-align: center;
+            font-size: 14px;
+            color: white;
+            font-style: italic;
+        }
+
+        /* Hover effect */
+        .container:hover .profile-pic {
+            animation: stutter 0.5s infinite;
+        }
+
+        @keyframes stutter {
+            0% {
+                background-image: url('pfp1.png');
+            }
+            50% {
+                background-image: url('pfp2.png');
+            }
+            100% {
+                background-image: url('pfp1.png');
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Background Video -->
+    <video id="background-video" loop muted>
+        <source src="video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Profile Picture -->
+        <div class="profile-pic"></div>
+        <!-- Text -->
+        <p>I like cybersec, I like it alot.</p>
+    </div>
+
+    <!-- Footer -->
+    <footer id="footer-message">I loved you...</footer>
+
+    <script>
+        // Video Play on Mouse Move
+        const video = document.getElementById('background-video');
+        let videoStarted = false;
+
+        window.addEventListener('mousemove', function() {
+            if (!videoStarted) {
+                video.play();
+                videoStarted = true;
+            }
+        });
+
+        // Random Footer Message
+        const footerMessages = [
+            "I loved you...",
+            "I miss you...",
+            "I'm sorry"
+        ];
+
+        const footer = document.getElementById('footer-message');
+        footer.textContent = footerMessages[Math.floor(Math.random() * footerMessages.length)];
+
+    </script>
+
+</body>
+</html>
